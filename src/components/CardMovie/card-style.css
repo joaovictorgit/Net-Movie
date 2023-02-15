@@ -1,0 +1,43 @@
+.recommendations {
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.container-recommendations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  height: 200px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.item:hover {
+  transform: scale(1.1);
+}
+
+.image-poster {
+  width: 10rem;
+  height: 200px;
+  position: absolute;
+  z-index: -1;
+  border: none;
+  border-radius: 10px;
+}
+
+.lbl-title {
+  text-align: center;
+  margin-top: 150px;
+}
