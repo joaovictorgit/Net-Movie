@@ -1,30 +1,29 @@
 .container-header {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 100%;
-  height: 400px;
+  height: 50px;
+  background: linear-gradient(to top, #060606, #24272c);
 }
 
 .img-background {
   position: absolute;
   z-index: -1;
   width: 100%;
-  height: 500px;
+  height: 400px;
 }
 
-.title {
-  color: white;
-  margin-left: calc(50% - 100px);
-  margin-top: calc(12% - 5px);
+.container-header .title {
+  background: linear-gradient(to bottom, #68fe9a, #38ee7b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-left: 25px;
+  cursor: pointer;
 }
 
-.description {
-  position: absolute;
-  right: 10px;
-  top: 20px;
-  width: 30%;
-  height: 150px;
-  color: white;
-  font-size: 0.8rem;
-  font-weight: 600;
+.icon-movie {
+  color: #38ee7b;
 }

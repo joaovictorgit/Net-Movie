@@ -1,11 +1,14 @@
 import "./header-style.css";
-import Image from "../../images/01.jpg";
+import { BiCameraMovie } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <div className="container-header">
-      <img src={Image} className="img-background" alt="movie-background" />
-      <h1 className="title">Net Movie</h1>
+      <h1 className="title" onClick={() => navigate("/")}>
+        <BiCameraMovie size={20} className="icon-movie" /> Net Movie
+      </h1>
     </div>
   );
 };

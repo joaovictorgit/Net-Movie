@@ -1,0 +1,142 @@
+.container-details {
+  width: 100%;
+  height: 450px;
+  margin-top: 20px;
+}
+
+.detail-cover {
+  position: absolute;
+  left: calc(5% - 10px);
+  border-radius: 20px;
+  opacity: 0.3;
+  width: 90%;
+  height: 500px;
+  z-index: 1;
+}
+
+.container-poster-details {
+  width: 12%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  top: calc(20% - 10px);
+  left: calc(6%);
+}
+
+.container-poster-details label {
+  color: #fff;
+  margin-top: 10px;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.detail-poster {
+  width: 10rem;
+  height: 200px;
+  border-radius: 20px;
+}
+
+.description {
+  width: 70%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  left: calc(20% - 10px);
+  bottom: calc(30% - 10px);
+}
+
+.description .lbl-description {
+  color: #fff;
+  font-size: 0.9em;
+  font-weight: 300;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.container-credits {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.credit-person {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 5px;
+  margin-right: 10px;
+}
+
+.credit-person label {
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.profile_path {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.container-credits span {
+  font-size: 0.8em;
+  font-weight: 800;
+}
+
+.container-average {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  color: #fff;
+}
+
+.container-average span {
+  font-weight: 800;
+  font-size: 0.8em;
+}
+
+.trailer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 120px;
+  height: 50px;
+  background: #38ee7b;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 0.8em;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.trailer:hover {
+  background: #68fe9a;
+}
+
+.container-trailer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.video-responsive {
+  position: relative;
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 80%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}

@@ -15,11 +15,18 @@ const items = [
   },
 ];
 
-const Menu = () => {
+const Menu = ({ setTitle }) => {
   return (
     <div className="container-menu">
       {items.map((item) => (
-        <div className="item-menu" key={item.id} id={item.id}>
+        <div
+          className="item-menu"
+          key={item.id}
+          id={item.id}
+          onClick={() => {
+            setTitle(item.nome);
+          }}
+        >
           {item.nome}
         </div>
       ))}
