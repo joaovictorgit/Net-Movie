@@ -1,7 +1,7 @@
 .container-header {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  position: absolute;
   width: 100%;
   height: 50px;
   background: linear-gradient(to top, #060606, #24272c);
@@ -15,6 +15,8 @@
 }
 
 .container-header .title {
+  position: absolute;
+  z-index: 1;
   background: linear-gradient(to bottom, #68fe9a, #38ee7b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -26,4 +28,21 @@
 
 .icon-movie {
   color: #38ee7b;
+}
+
+.menu {
+  position: absolute;
+  right: 100px;
+  top: 15px;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+}
+
+.menu span {
+  background: linear-gradient(to bottom, #68fe9a, #38ee7b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
 }

@@ -1,0 +1,28 @@
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  padding: 20px;
+}
+
+.active-pagination {
+  width: 40px;
+  height: 40px;
+  background: #68fe9a;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.btn-pagination {
+  width: 40px;
+  height: 40px;
+  background: #24272c;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}

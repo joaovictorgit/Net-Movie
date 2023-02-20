@@ -1,11 +1,28 @@
 import { useNavigate } from "react-router-dom";
+import Pagination from "../Pagination/pagination";
+
 import "./card-style.css";
 
-const CardMovie = ({ title, releases }) => {
+const CardMovie = (props) => {
+  const {
+    title,
+    releases,
+    totalPosts,
+    postsPerPage,
+    setCurrentPage,
+    currentPage,
+  } = props;
   const navigate = useNavigate();
+
   return (
     <>
       <h4 className="recommendations">Lista de {title}</h4>
+      <Pagination
+        totalPosts={totalPosts}
+        postsPerPage={postsPerPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
       <div className="container-recommendations">
         {releases.map((release, index) => (
           <div

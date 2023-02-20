@@ -1,15 +1,20 @@
+.pagination-container {
+  color: #fff;
+}
+
 .recommendations {
   color: white;
   font-size: 2em;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
 .container-recommendations {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 10rem);
   justify-content: center;
-  gap: 1.5rem;
+
   align-items: center;
 }
 
@@ -40,4 +45,11 @@
 .lbl-title {
   text-align: center;
   margin-top: 150px;
+}
+
+.sweet-pagination {
+  margin: 0 auto;
+  color: #68fe9a;
+  width: 25%;
+  margin-top: 20px;
 }

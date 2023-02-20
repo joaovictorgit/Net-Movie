@@ -1,36 +1,39 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FaSearch } from "react-icons/fa";
 import CardMovie from "../../components/CardMovie/card-movie";
 import Header from "../../components/Header/header";
-import Menu from "../../components/Menu/menu";
+import Search from "../../components/Search/search";
 import Slide from "../../components/Slide/slide";
-
 import "./home-style.css";
+
 const HomeScreen = () => {
   const [title, setTitle] = useState("Recomendações");
   const [search, setSearch] = useState("");
-  const [status, setStatus] = useState("recomendações");
+  const [status, setStatus] = useState("recommendations");
   const [releases, setReleases] = useState([]);
   const api_key = "0db62ecbfbd912a6e452af52373f9031";
   const token =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZGI2MmVjYmZiZDkxMmE2ZTQ1MmFmNTIzNzNmOTAzMSIsInN1YiI6IjYwYmQxMmY5MThiNzUxMDA0MjhhNWM3NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1eqp95rqD7ktZf_qfAwkQnyjona-hLeXR-q1_SbZj4k";
-  const getMoviesRecommend = async () => {
-    if (status === "recomendações") {
-      const id = 15;
-      await axios
-        .get(
-          `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${api_key}&language=pt-BR&page=1`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-        .then((response) => {
-          setReleases(response.data.results);
-        });
+  const getMoviesRecommend = async (status) => {
+    if (status !== "search") {
+      try {
+        const id = 15;
+        await axios
+          .get(
+            `https://api.themoviedb.org/3/movie/${id}/${status}?api_key=${api_key}&language=pt-BR&page=1`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
+          .then((response) => {
+            setReleases(response.data.results);
+          });
+      } catch (error) {
+        console.log(error);
+      }
     } else {
       try {
         await axios
@@ -54,34 +57,46 @@ const HomeScreen = () => {
   };
 
   useEffect(() => {
-    getMoviesRecommend();
+    getMoviesRecommend(status);
   }, []);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(8);
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = releases.slice(firstPostIndex, lastPostIndex);
+
   return (
     <div className="main">
       <Header />
       <Slide />
       <div className="container-home">
         <div className="container-searc-menu">
-          <Menu setTitle={setTitle} />
-          <div className="container-search">
-            <FaSearch
-              size={20}
-              className="icon"
-              onClick={() => {
-                setStatus("pesquisar");
-                getMoviesRecommend();
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Pesquisar"
-              className="search"
-              value={search}
-              onChange={(event) => setSearch(event.target.value)}
-            />
-          </div>
+          <Search
+            setStatus={setStatus}
+            getMoviesRecommend={getMoviesRecommend}
+            status={status}
+            search={search}
+            setSearch={setSearch}
+          />
         </div>
-        <div className="container-category">
+
+        <CardMovie
+          title={title}
+          releases={currentPosts}
+          totalPosts={releases.length}
+          postsPerPage={postsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default HomeScreen;
+/*
+<div className="container-category">
           <label>Categorias: </label>
           <select className="select">
             <option className="option" value="todas">
@@ -98,10 +113,5 @@ const HomeScreen = () => {
             </option>
           </select>
         </div>
-        <CardMovie title={title} releases={releases} />
-      </div>
-    </div>
-  );
-};
 
-export default HomeScreen;
+*/
