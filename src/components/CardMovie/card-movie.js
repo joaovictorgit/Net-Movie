@@ -31,6 +31,7 @@ const CardMovie = (props) => {
             onClick={() => {
               navigate("/details");
               localStorage.setItem("@element", JSON.stringify(release));
+              localStorage.setItem("@credit", JSON.stringify("movie"));
             }}
           >
             <img

@@ -11,6 +11,7 @@ import axios from "axios";
 const Movie = () => {
   const [trailer, setTrailer] = useState();
   const element = JSON.parse(localStorage.getItem("@element"));
+  const type_credit = JSON.parse(localStorage.getItem("@credit"));
   const [videos, setVideos] = useState([]);
   const [credits, setCredits] = useState([]);
   const api_key = "0db62ecbfbd912a6e452af52373f9031";
@@ -37,7 +38,7 @@ const Movie = () => {
     try {
       await axios
         .get(
-          `https://api.themoviedb.org/3/movie/${element.id}/credits?api_key=${api_key}&language=en-US`,
+          `https://api.themoviedb.org/3/${type_credit}/${element.id}/credits?api_key=${api_key}&language=en-US`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

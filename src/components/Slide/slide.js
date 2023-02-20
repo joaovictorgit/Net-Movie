@@ -86,6 +86,7 @@ const Slide = () => {
                 onClick={() => {
                   navigate("/details");
                   localStorage.setItem("@element", JSON.stringify(movie));
+                  localStorage.setItem("@credit", JSON.stringify("movie"));
                 }}
               />
               <label>{movie.title}</label>
