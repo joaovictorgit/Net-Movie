@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CardMovie from "../../components/CardMovie/card-movie";
+import Footer from "../../components/Footer/footer";
 import Header from "../../components/Header/header";
 import Search from "../../components/Search/search";
 import Slide from "../../components/Slide/slide";
@@ -90,6 +91,7 @@ const HomeScreen = () => {
           currentPage={currentPage}
         />
       </div>
+      <Footer />
     </div>
   );
 };

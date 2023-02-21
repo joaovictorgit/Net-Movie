@@ -1,0 +1,41 @@
+.container-movies {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-movie {
+  position: absolute;
+  top: calc(15%);
+  left: calc(60%);
+}
+
+.title-movies-recommend {
+  margin-top: 150px;
+  margin-left: calc(35% - 10px);
+  color: #fff;
+}
+.movies-recommendations {
+  display: flex;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 10rem);
+  justify-content: center;
+  align-items: center;
+}
+
+.movies-recommendations::-webkit-scrollbar {
+  display: none;
+}
+
+.item-movie {
+  width: 10rem;
+  height: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.item-movie img {
+  width: 10rem;
+  height: 200px;
+  border-radius: 10px;
+}
